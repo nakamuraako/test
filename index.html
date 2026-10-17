@@ -1,142 +1,1023 @@
 
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>アイドルの紹介ページ</title>
+    <title>守屋麗奈｜SPECIAL FAN PAGE</title>
 
     <style>
-        /* ページ全体 */
+        /* =========================
+           基本設定
+        ========================= */
+        :root {
+            --pink: #F3D5DF;
+            --pink-light: #FDF0F4;
+            --pink-deep: #B88796;
+            --pink-dark: #805B69;
+            --cream: #FFFDF8;
+            --text: #5C4A42;
+            --line: #F0E2E3;
+            --white: #FFFFFF;
+            --shadow: 0 8px 24px rgba(128, 91, 105, 0.08);
+        }
+
         * {
             box-sizing: border-box;
         }
 
-        body {
-            margin: 0;
-            padding-bottom: 130px;
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            color: #5C4A42;
-            background-color: #FFFDF8;
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 90px;
         }
 
-        /* ヘッダー */
+        body {
+            margin: 0;
+            background: var(--cream);
+            color: var(--text);
+            font-family:
+                "Yu Gothic",
+                "Hiragino Kaku Gothic ProN",
+                Meiryo,
+                sans-serif;
+            line-height: 1.8;
+            letter-spacing: 0.04em;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        button {
+            font: inherit;
+        }
+
+        .container {
+            width: min(100% - 40px, 1000px);
+            margin: 0 auto;
+        }
+
+        /* =========================
+           ヘッダー
+        ========================= */
         header {
-            background-color: #F8D7E3;
-            color: #765565;
+            position: relative;
+            overflow: hidden;
+            padding: 55px 20px 38px;
             text-align: center;
-            padding: 20px;
+            background: linear-gradient(
+                135deg,
+                #F9E5EB,
+                #F3D5DF,
+                #FDF0F4
+            );
+            border-bottom: 1px solid var(--line);
+        }
+
+        .header-label {
+            margin: 0 0 8px;
+            color: var(--pink-dark);
+            font-size: 10px;
+            letter-spacing: 0.35em;
         }
 
         header h1 {
             margin: 0;
+            color: var(--pink-dark);
+            font-family: Georgia, "Yu Mincho", serif;
+            font-size: clamp(28px, 5vw, 44px);
+            font-weight: 500;
+            letter-spacing: 0.12em;
         }
 
-        /* メインコンテンツ */
-        main {
-            max-width: 800px;
-            margin: 30px auto;
-            padding: 0 20px;
-            color: #5C4A42;
+        .header-subtitle {
+            margin: 10px 0 0;
+            color: #8F747C;
+            font-size: 12px;
+            letter-spacing: 0.18em;
         }
 
-        section {
-            background-color: #FFFFF0;
-            margin-bottom: 20px;
-            padding: 20px;
-            border-radius: 8px;
-            border: 1px solid #F1E6D5;
+        /* =========================
+           ナビゲーション
+        ========================= */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 8px;
+            padding: 13px 16px;
+            background: rgba(255, 253, 248, 0.95);
+            border-bottom: 1px solid var(--line);
+            backdrop-filter: blur(10px);
         }
 
-        h2 {
-            color: #B88796;
-            border-bottom: 2px solid #F3DDE4;
-            padding-bottom: 8px;
+        nav a {
+            padding: 6px 15px;
+            border: 1px solid transparent;
+            border-radius: 30px;
+            color: var(--pink-dark);
+            font-size: 11px;
+            transition: background 0.3s, border-color 0.3s;
         }
 
-        /* フッター */
-        footer {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            background-color: #FDF0F4;
-            color: #8C6875;
-            text-align: center;
+        nav a:hover {
+            background: var(--pink-light);
+            border-color: var(--pink);
+        }
+
+        /* =========================
+           メインビジュアル
+        ========================= */
+        .hero {
+            padding: 55px 0 65px;
+        }
+
+        .hero-inner {
+            display: grid;
+            grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+            align-items: center;
+            gap: 55px;
+        }
+
+        .profile-image-frame {
+            overflow: hidden;
             padding: 10px;
+            border: 1px solid var(--pink);
+            border-radius: 180px 180px 14px 14px;
+            background: var(--white);
+            box-shadow: var(--shadow);
+        }
+
+        .profile-image {
+            width: 100%;
+            aspect-ratio: 3 / 4;
+            border-radius: 170px 170px 8px 8px;
+            object-fit: cover;
+            object-position: center top;
+            background: var(--pink-light);
+        }
+
+        .profile-caption {
+            margin: 12px 0 0;
+            color: var(--pink-deep);
+            font-family: Georgia, serif;
+            font-size: 10px;
+            letter-spacing: 0.25em;
+            text-align: center;
+        }
+
+        .hero-label {
+            margin: 0 0 12px;
+            color: var(--pink-deep);
+            font-size: 11px;
+            letter-spacing: 0.3em;
+        }
+
+        .hero h2 {
+            margin: 0;
+            color: var(--pink-dark);
+            font-family: "Yu Mincho", serif;
+            font-size: clamp(28px, 4vw, 40px);
+            font-weight: 500;
+            letter-spacing: 0.1em;
+        }
+
+        .hero-name-en {
+            margin: 5px 0 22px;
+            color: #B9A0A4;
+            font-family: Georgia, serif;
             font-size: 14px;
-            border-top: 1px solid #F5E1E8;
+            letter-spacing: 0.16em;
         }
 
-        footer p {
-            margin: 3px 0;
+        .hero-description {
+            margin: 0 0 25px;
+            color: #786A64;
+            font-size: 13px;
+            line-height: 2.2;
         }
 
-        footer a {
-            color: #A8798A;
-            text-decoration: none;
+        .profile-details {
+            display: grid;
+            grid-template-columns: 85px 1fr;
+            gap: 10px 14px;
+            margin: 0;
+            padding: 18px;
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.65);
+            font-size: 12px;
         }
 
-        footer a:hover {
-            text-decoration: underline;
+        .profile-details dt {
+            color: var(--pink-deep);
         }
 
-        /* スマートフォン対応 */
-        @media (max-width: 600px) {
-            main {
-                margin: 20px auto;
-                padding: 0 12px;
+        .profile-details dd {
+            margin: 0;
+        }
+
+        /* =========================
+           共通セクション
+        ========================= */
+        section {
+            padding: 65px 0;
+            border-top: 1px solid var(--line);
+        }
+
+        .section-label {
+            margin: 0 0 5px;
+            color: var(--pink-deep);
+            font-family: Georgia, serif;
+            font-size: 11px;
+            letter-spacing: 0.25em;
+            text-align: center;
+        }
+
+        .section-title {
+            margin: 0 0 35px;
+            color: var(--pink-dark);
+            font-family: "Yu Mincho", serif;
+            font-size: clamp(23px, 4vw, 30px);
+            font-weight: 500;
+            letter-spacing: 0.08em;
+            text-align: center;
+        }
+
+        /* スクロール時のフェードイン */
+        .fade-section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition:
+                opacity 0.7s ease,
+                transform 0.7s ease;
+        }
+
+        .fade-section.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* =========================
+           活動紹介
+        ========================= */
+        .activity-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 18px;
+        }
+
+        .activity-card {
+            min-width: 0;
+            overflow: hidden;
+            border: 1px solid var(--line);
+            border-radius: 14px;
+            background: var(--white);
+            box-shadow: 0 4px 15px rgba(128, 91, 105, 0.04);
+            transition:
+                transform 0.3s ease,
+                box-shadow 0.3s ease;
+        }
+
+        .activity-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(128, 91, 105, 0.14);
+        }
+
+        .activity-image-frame {
+            width: 100%;
+            aspect-ratio: 3 / 4;
+            overflow: hidden;
+            background: var(--pink-light);
+        }
+
+        .activity-image-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            transition: transform 0.5s ease;
+        }
+
+        .activity-card:hover .activity-image-frame img {
+            transform: scale(1.04);
+        }
+
+        .activity-card-content {
+            padding: 16px 14px 18px;
+        }
+
+        .activity-en {
+            margin: 0 0 4px;
+            color: var(--pink-deep);
+            font-family: Georgia, serif;
+            font-size: 10px;
+            letter-spacing: 0.2em;
+        }
+
+        .activity-card h3 {
+            margin: 0 0 7px;
+            color: var(--pink-dark);
+            font-size: 16px;
+        }
+
+        .activity-card-content p:last-child {
+            margin: 0;
+            color: #8F7D78;
+            font-size: 11px;
+            line-height: 1.8;
+        }
+
+        .activity-note {
+            margin: 20px 0 0;
+            color: #786A64;
+            font-size: 12px;
+            text-align: center;
+        }
+
+        /* =========================
+           魅力紹介
+        ========================= */
+        .charm-list {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 18px;
+        }
+
+        .charm-card {
+            padding: 25px 18px;
+            border: 1px solid var(--line);
+            border-radius: 14px;
+            background: linear-gradient(
+                145deg,
+                #FFFFFF,
+                #FDF5F6
+            );
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .charm-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .charm-number {
+            display: inline-grid;
+            width: 38px;
+            height: 38px;
+            place-items: center;
+            margin-bottom: 12px;
+            border: 1px solid var(--pink);
+            border-radius: 50%;
+            color: var(--pink-dark);
+            font-family: Georgia, serif;
+            font-size: 12px;
+        }
+
+        .charm-card h3 {
+            margin: 0 0 10px;
+            color: var(--pink-dark);
+            font-size: 15px;
+        }
+
+        .charm-card p {
+            margin: 0;
+            color: #86756F;
+            font-size: 12px;
+            line-height: 2;
+        }
+
+        /* =========================
+           ニュース
+        ========================= */
+        .news-list {
+            max-width: 750px;
+            margin: 0 auto;
+        }
+
+        .news-item {
+            display: grid;
+            grid-template-columns: 105px 1fr;
+            gap: 18px;
+            align-items: start;
+            padding: 20px 5px;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .news-date {
+            color: var(--pink-deep);
+            font-family: Georgia, serif;
+            font-size: 12px;
+        }
+
+        .news-content h3 {
+            margin: 0 0 5px;
+            color: var(--pink-dark);
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .news-content p {
+            margin: 0;
+            color: #8F7D78;
+            font-size: 12px;
+        }
+
+        .news-notice {
+            margin: 18px 0 0;
+            color: #A08E87;
+            font-size: 11px;
+            text-align: center;
+        }
+
+        /* =========================
+           公式リンク
+        ========================= */
+        .sns-box {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 30px;
+            border: 1px solid var(--line);
+            border-radius: 16px;
+            background: linear-gradient(
+                135deg,
+                #FFFFFF,
+                var(--pink-light)
+            );
+            text-align: center;
+        }
+
+        .sns-box p {
+            margin: 0 0 20px;
+            color: #786A64;
+            font-size: 13px;
+        }
+
+        .sns-link {
+            display: inline-block;
+            padding: 12px 25px;
+            border: 1px solid var(--pink-deep);
+            border-radius: 30px;
+            background: var(--white);
+            color: var(--pink-dark);
+            font-size: 12px;
+            transition:
+                color 0.3s,
+                background 0.3s;
+        }
+
+        .sns-link:hover {
+            background: var(--pink-deep);
+            color: var(--white);
+        }
+
+        /* =========================
+           お気に入りボタン
+        ========================= */
+        .favorite-area {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .favorite-button {
+            padding: 11px 25px;
+            border: 1px solid var(--pink-deep);
+            border-radius: 30px;
+            background: var(--white);
+            color: var(--pink-dark);
+            font-size: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .favorite-button:hover,
+        .favorite-button.active {
+            background: var(--pink-deep);
+            color: var(--white);
+        }
+
+        /* =========================
+           フッター
+        ========================= */
+        footer {
+            padding: 30px 20px;
+            border-top: 1px solid var(--line);
+            background: #F9E9ED;
+            color: #927982;
+            text-align: center;
+        }
+
+        .footer-title {
+            margin: 0 0 5px;
+            font-family: Georgia, serif;
+            font-size: 13px;
+            letter-spacing: 0.2em;
+        }
+
+        footer p:last-child {
+            margin: 0;
+            font-size: 10px;
+        }
+
+        /* =========================
+           トップへ戻るボタン
+        ========================= */
+        .back-to-top {
+            position: fixed;
+            right: 22px;
+            bottom: 22px;
+            z-index: 90;
+            display: grid;
+            width: 43px;
+            height: 43px;
+            place-items: center;
+            border: 1px solid var(--pink);
+            border-radius: 50%;
+            background: rgba(255, 253, 248, 0.95);
+            color: var(--pink-dark);
+            font-size: 18px;
+            cursor: pointer;
+            opacity: 0;
+            pointer-events: none;
+            transform: translateY(8px);
+            transition: all 0.3s ease;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            pointer-events: auto;
+            transform: translateY(0);
+        }
+
+        .back-to-top:hover {
+            background: var(--pink);
+        }
+
+        /* =========================
+           スマートフォン対応
+        ========================= */
+        @media (max-width: 650px) {
+            .container {
+                width: min(100% - 30px, 500px);
             }
 
-            footer {
-                font-size: 12px;
-                padding: 8px;
+            header {
+                padding: 42px 15px 30px;
             }
 
-            body {
-                padding-bottom: 120px;
+            nav {
+                gap: 3px;
+                padding: 10px 6px;
+            }
+
+            nav a {
+                padding: 6px 9px;
+                font-size: 10px;
+            }
+
+            .hero {
+                padding: 35px 0 45px;
+            }
+
+            .hero-inner {
+                grid-template-columns: 1fr;
+                gap: 28px;
+            }
+
+            .hero-visual {
+                width: min(75%, 280px);
+                margin: 0 auto;
+            }
+
+            .hero-profile {
+                text-align: center;
+            }
+
+            .hero-description {
+                text-align: left;
+            }
+
+            .profile-details {
+                text-align: left;
+            }
+
+            section {
+                padding: 48px 0;
+            }
+
+            .activity-grid {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+
+            .activity-card {
+                display: grid;
+                grid-template-columns: minmax(110px, 38%) minmax(0, 1fr);
+                align-items: center;
+            }
+
+            .activity-image-frame {
+                height: 100%;
+                min-height: 155px;
+                aspect-ratio: auto;
+            }
+
+            .activity-card-content {
+                padding: 16px;
+            }
+
+            .charm-list {
+                grid-template-columns: 1fr;
+                gap: 13px;
+            }
+
+            .charm-card {
+                padding: 20px;
+            }
+
+            .news-item {
+                grid-template-columns: 85px 1fr;
+                gap: 10px;
+            }
+
+            .sns-box {
+                padding: 25px 18px;
+            }
+
+            .back-to-top {
+                right: 14px;
+                bottom: 14px;
+            }
+        }
+
+        /* 動きを控える設定が有効な場合 */
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                transition-duration: 0.01ms !important;
+            }
+
+            .fade-section {
+                opacity: 1;
+                transform: none;
             }
         }
     </style>
 </head>
 
-<body>
+<body id="top">
+
+    <!-- ヘッダー -->
     <header>
-        <h1>アイドルの紹介ページ</h1>
+        <p class="header-label">SPECIAL FAN PAGE</p>
+        <h1>守屋 麗奈</h1>
+        <p class="header-subtitle">RENA MORIYA ｜ SAKURAZAKA46</p>
     </header>
 
+    <!-- ナビゲーション -->
+    <nav aria-label="メインナビゲーション">
+        <a href="#profile">PROFILE</a>
+        <a href="#activity">ACTIVITY</a>
+        <a href="#charm">CHARM</a>
+        <a href="#news">NEWS</a>
+        <a href="#sns">OFFICIAL</a>
+    </nav>
+
     <main>
-        <section>
-            <h2>1. プロフィール</h2>
-            <p>
-                櫻坂46 2期生<br>
-                守屋麗奈<br>
-                東京都出身
-            </p>
+
+        <!-- プロフィール -->
+        <section id="profile" class="hero fade-section">
+            <div class="container hero-inner">
+
+                <div class="hero-visual">
+                    <div class="profile-image-frame">
+                        <img
+                            class="profile-image"
+                            src="https://sakurazaka46.com/images/14/7fb/b278deb8d1a8e958f7eb85a7137ec/1000_1000_102400.jpg"
+                            alt="守屋麗奈さんのプロフィール写真"
+                            loading="lazy"
+                        >
+                    </div>
+                    <p class="profile-caption">SPECIAL MOMENT</p>
+                </div>
+
+                <div class="hero-profile">
+                    <p class="hero-label">ABOUT HER</p>
+                    <h2>守屋 麗奈</h2>
+                    <p class="hero-name-en">Rena Moriya</p>
+
+                    <p class="hero-description">
+                        櫻坂46のメンバーとして活動する守屋麗奈さん。
+                        華やかなビジュアルや柔らかな雰囲気、
+                        さまざまな場面で見せる表情が魅力です。
+                        このページでは、活動や魅力を紹介します。
+                    </p>
+
+                    <dl class="profile-details">
+                        <dt>名前</dt>
+                        <dd>守屋 麗奈</dd>
+
+                        <dt>英語表記</dt>
+                        <dd>Rena Moriya</dd>
+
+                        <dt>所属</dt>
+                        <dd>櫻坂46</dd>
+
+                        <dt>紹介テーマ</dt>
+                        <dd>アイドル・ファッション・魅力</dd>
+                    </dl>
+                </div>
+
+            </div>
         </section>
 
-        <section>
-            <h2>2. 仕事紹介</h2>
-            <p>
-                アイドル<br>
-                モデル<br>
-                女優
-            </p>
+        <!-- 活動紹介 -->
+        <section id="activity" class="fade-section">
+            <div class="container">
+                <p class="section-label">02 — HER WORLD</p>
+                <h2 class="section-title">ACTIVITY｜活動紹介</h2>
+
+                <div class="activity-grid">
+
+                    <article class="activity-card">
+                        <div class="activity-image-frame">
+                            <img
+                                src="https://sakurazaka46.com/images/14/01c/00edfb6244883447b796ca214f2cb.jpg"
+                                alt="櫻坂46の活動に関する写真"
+                                loading="lazy"
+                            >
+                        </div>
+                        <div class="activity-card-content">
+                            <p class="activity-en">IDOL</p>
+                            <h3>アイドル</h3>
+                            <p>
+                                櫻坂46での活動やライブでの姿に注目。
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="activity-card">
+                        <div class="activity-image-frame">
+                            <img
+                                src="https://sakurazaka46.com/images/14/a09/be7e4c9ad3bff9478d2f2d93d790f-02.jpg"
+                                alt="守屋麗奈さんのファッションや美容に関する写真"
+                                loading="lazy"
+                            >
+                        </div>
+                        <div class="activity-card-content">
+                            <p class="activity-en">FASHION</p>
+                            <h3>ファッション</h3>
+                            <p>
+                                ファッションやメイクで見せる表情も魅力。
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="activity-card">
+                        <div class="activity-image-frame">
+                            <img
+                                src="https://sakurazaka46.com/images/14/7fb/b278deb8d1a8e958f7eb85a7137ec/1000_1000_102400.jpg"
+                                alt="守屋麗奈さんの公式プロフィール写真"
+                                loading="lazy"
+                            >
+                        </div>
+                        <div class="activity-card-content">
+                            <p class="activity-en">CHARACTER</p>
+                            <h3>表現力</h3>
+                            <p>
+                                写真やメディアで見せる多彩な表情に注目。
+                            </p>
+                        </div>
+                    </article>
+
+                </div>
+
+                <p class="activity-note">
+                    さまざまな場面で活躍する守屋麗奈さんの魅力を紹介します。
+                </p>
+            </div>
         </section>
+
+        <!-- 魅力紹介 -->
+        <section id="charm" class="fade-section">
+            <div class="container">
+                <p class="section-label">03 — WHY I LIKE HER</p>
+                <h2 class="section-title">CHARM｜麗奈さんの魅力</h2>
+
+                <div class="charm-list">
+
+                    <article class="charm-card">
+                        <div class="charm-number">01</div>
+                        <h3>華やかなビジュアル</h3>
+                        <p>
+                            上品で華やかな雰囲気と、
+                            写真ごとに変わる表情が魅力です。
+                        </p>
+                    </article>
+
+                    <article class="charm-card">
+                        <div class="charm-number">02</div>
+                        <h3>柔らかな雰囲気</h3>
+                        <p>
+                            優しい笑顔や自然体の姿から、
+                            親しみやすさが感じられます。
+                        </p>
+                    </article>
+
+                    <article class="charm-card">
+                        <div class="charm-number">03</div>
+                        <h3>多彩な表現</h3>
+                        <p>
+                            アイドルとしての姿だけでなく、
+                            さまざまな場面で見せる表現も魅力です。
+                        </p>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- お知らせ -->
+        <section id="news" class="fade-section">
+            <div class="container">
+                <p class="section-label">04 — INFORMATION</p>
+                <h2 class="section-title">NEWS｜お知らせ</h2>
+
+                <div class="news-list">
+
+                    <article class="news-item">
+                        <div class="news-date">OFFICIAL</div>
+                        <div class="news-content">
+                            <h3>公式プロフィール</h3>
+                            <p>
+                                プロフィールや最新の公式情報を確認できます。
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="news-item">
+                        <div class="news-date">BLOG</div>
+                        <div class="news-content">
+                            <h3>公式ブログ</h3>
+                            <p>
+                                ブログで発信されるメッセージや写真をチェック。
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="news-item">
+                        <div class="news-date">SCHEDULE</div>
+                        <div class="news-content">
+                            <h3>最新の活動情報</h3>
+                            <p>
+                                出演情報やグループの最新ニュースは公式サイトへ。
+                            </p>
+                        </div>
+                    </article>
+
+                </div>
+
+                <p class="news-notice">
+                    ※このページはファン制作の紹介ページです。
+                    最新情報は公式サイトでご確認ください。
+                </p>
+            </div>
+        </section>
+
+        <!-- 公式リンク -->
+        <section id="sns" class="fade-section">
+            <div class="container">
+                <p class="section-label">05 — OFFICIAL LINKS</p>
+                <h2 class="section-title">OFFICIAL｜公式リンク</h2>
+
+                <div class="sns-box">
+                    <p>
+                        守屋麗奈さんや櫻坂46の最新情報は、
+                        公式サイトでチェックできます。
+                    </p>
+
+                    <a
+                        class="sns-link"
+                        href="https://sakurazaka46.com/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        櫻坂46 公式サイト ↗
+                    </a>
+                </div>
+
+                <div class="favorite-area">
+                    <button
+                        type="button"
+                        class="favorite-button"
+                        id="favoriteButton"
+                        aria-pressed="false"
+                    >
+                        お気に入りに登録
+                    </button>
+                </div>
+            </div>
+        </section>
+
     </main>
 
+    <!-- フッター -->
     <footer>
-        <p>お問い合わせ：info@example.com</p>
-        <p>
-            SNS：
-            <a href="https://www.instagram.com/" target="_blank"
-               rel="noopener noreferrer">Instagram</a>
-            |
-            <a href="https://x.com/" target="_blank"
-               rel="noopener noreferrer">X</a>
-        </p>
-        <p>&copy; 2026 My Web Site</p>
+        <p class="footer-title">RENA MORIYA FAN PAGE</p>
+        <p>Unofficial fan-made website</p>
     </footer>
+
+    <!-- トップへ戻る -->
+    <button
+        type="button"
+        class="back-to-top"
+        id="backToTop"
+        aria-label="ページの先頭へ戻る"
+    >
+        ↑
+    </button>
+
+    <script>
+        /* =========================
+           スクロール時のフェードイン
+        ========================= */
+        const fadeSections = document.querySelectorAll(".fade-section");
+
+        if ("IntersectionObserver" in window) {
+            const observer = new IntersectionObserver(
+                (entries, currentObserver) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add("show");
+                            currentObserver.unobserve(entry.target);
+                        }
+                    });
+                },
+                {
+                    threshold: 0.12
+                }
+            );
+
+            fadeSections.forEach((section) => {
+                observer.observe(section);
+            });
+        } else {
+            fadeSections.forEach((section) => {
+                section.classList.add("show");
+            });
+        }
+
+        /* =========================
+           お気に入りボタン
+        ========================= */
+        const favoriteButton = document.getElementById("favoriteButton");
+
+        favoriteButton.addEventListener("click", () => {
+            const isActive = favoriteButton.classList.toggle("active");
+
+            favoriteButton.setAttribute("aria-pressed", String(isActive));
+
+            favoriteButton.textContent = isActive
+                ? "お気に入り登録中"
+                : "お気に入りに登録";
+        });
+
+        /* =========================
+           トップへ戻るボタン
+        ========================= */
+        const backToTop = document.getElementById("backToTop");
+
+        window.addEventListener("scroll", () => {
+            if (window.scrollY > 350) {
+                backToTop.classList.add("visible");
+            } else {
+                backToTop.classList.remove("visible");
+            }
+        });
+
+        backToTop.addEventListener("click", () => {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        });
+    </script>
+
 </body>
 </html>
