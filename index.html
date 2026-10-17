@@ -1,5 +1,4 @@
 
-
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -270,6 +269,7 @@
 
         /* =========================
            活動紹介
+           ※元の内容から変更なし
         ========================= */
         .activity-grid {
             display: grid;
@@ -347,6 +347,7 @@
 
         /* =========================
            魅力紹介
+           ここを変更
         ========================= */
         .charm-list {
             display: grid;
@@ -355,7 +356,9 @@
         }
 
         .charm-card {
-            padding: 25px 18px;
+            min-width: 0;
+            overflow: hidden;
+            padding: 15px 15px 24px;
             border: 1px solid var(--line);
             border-radius: 14px;
             background: linear-gradient(
@@ -364,11 +367,37 @@
                 #FDF5F6
             );
             text-align: center;
-            transition: transform 0.3s ease;
+            transition:
+                transform 0.3s ease,
+                box-shadow 0.3s ease;
         }
 
         .charm-card:hover {
             transform: translateY(-4px);
+            box-shadow: 0 10px 24px rgba(128, 91, 105, 0.10);
+        }
+
+        /* 魅力紹介の写真枠 */
+        .charm-photo-frame {
+            width: 100%;
+            aspect-ratio: 3 / 4;
+            overflow: hidden;
+            margin-bottom: 18px;
+            border-radius: 10px;
+            background: var(--pink-light);
+        }
+
+        .charm-photo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+            opacity: 1;
+            transition: opacity 0.45s ease;
+        }
+
+        .charm-photo.is-changing {
+            opacity: 0;
         }
 
         .charm-number {
@@ -642,7 +671,11 @@
             }
 
             .charm-card {
-                padding: 20px;
+                padding: 15px 15px 22px;
+            }
+
+            .charm-photo-frame {
+                aspect-ratio: 4 / 3;
             }
 
             .news-item {
@@ -701,7 +734,7 @@
 
     <main>
 
-        <!-- プロフィール -->
+        <!-- プロフィール：変更なし -->
         <section id="profile" class="hero fade-section">
             <div class="container hero-inner">
 
@@ -747,7 +780,7 @@
             </div>
         </section>
 
-        <!-- 活動紹介 -->
+        <!-- 活動紹介：変更なし -->
         <section id="activity" class="fade-section">
             <div class="container">
                 <p class="section-label">02 — HER WORLD</p>
@@ -814,7 +847,7 @@
             </div>
         </section>
 
-        <!-- 魅力紹介 -->
+        <!-- 魅力紹介：写真と自動切り替えを追加 -->
         <section id="charm" class="fade-section">
             <div class="container">
                 <p class="section-label">03 — WHY I LIKE HER</p>
@@ -822,7 +855,17 @@
 
                 <div class="charm-list">
 
+                    <!-- 01 華やかなビジュアル -->
                     <article class="charm-card">
+                        <div class="charm-photo-frame">
+                            <img
+                                class="charm-photo"
+                                src="https://www.moezine.com/wp-content/uploads/2024/11/HunQvxLpj7R8u25aj3uNTut6AWMheuFpMECNfzBc.jpg"
+                                data-images="https://www.moezine.com/wp-content/uploads/2024/11/HunQvxLpj7R8u25aj3uNTut6AWMheuFpMECNfzBc.jpg|https://sakurazaka46.com/images/14/a09/be7e4c9ad3bff9478d2f2d93d790f.jpg"
+                                alt="守屋麗奈さんの華やかなビジュアル"
+                                loading="lazy"
+                            >
+                        </div>
                         <div class="charm-number">01</div>
                         <h3>華やかなビジュアル</h3>
                         <p>
@@ -831,7 +874,17 @@
                         </p>
                     </article>
 
+                    <!-- 02 柔らかな雰囲気 -->
                     <article class="charm-card">
+                        <div class="charm-photo-frame">
+                            <img
+                                class="charm-photo"
+                                src="https://realsound.jp/wp-content/uploads/2026/04/20260404-moriyarena-08.jpeg"
+                                data-images="https://realsound.jp/wp-content/uploads/2026/04/20260404-moriyarena-08.jpeg|https://sakurazaka46.com/images/14/a09/be7e4c9ad3bff9478d2f2d93d790f-03.jpg"
+                                alt="守屋麗奈さんの柔らかな雰囲気"
+                                loading="lazy"
+                            >
+                        </div>
                         <div class="charm-number">02</div>
                         <h3>柔らかな雰囲気</h3>
                         <p>
@@ -840,7 +893,17 @@
                         </p>
                     </article>
 
+                    <!-- 03 多彩な表現 -->
                     <article class="charm-card">
+                        <div class="charm-photo-frame">
+                            <img
+                                class="charm-photo"
+                                src="https://sakurazaka46.com/images/14/a09/be7e4c9ad3bff9478d2f2d93d790f-04.jpg"
+                                data-images="https://sakurazaka46.com/images/14/a09/be7e4c9ad3bff9478d2f2d93d790f-04.jpg|https://sakurazaka46.com/images/14/7bf/ade3ed17c2a005692a259ae3223ab.jpg"
+                                alt="守屋麗奈さんの多彩な表現"
+                                loading="lazy"
+                            >
+                        </div>
                         <div class="charm-number">03</div>
                         <h3>多彩な表現</h3>
                         <p>
@@ -853,7 +916,7 @@
             </div>
         </section>
 
-        <!-- お知らせ -->
+        <!-- お知らせ：変更なし -->
         <section id="news" class="fade-section">
             <div class="container">
                 <p class="section-label">04 — INFORMATION</p>
@@ -900,7 +963,7 @@
             </div>
         </section>
 
-        <!-- 公式リンク -->
+        <!-- 公式リンク：変更なし -->
         <section id="sns" class="fade-section">
             <div class="container">
                 <p class="section-label">05 — OFFICIAL LINKS</p>
@@ -982,6 +1045,53 @@
                 section.classList.add("show");
             });
         }
+
+        /* =========================
+           魅力紹介の写真を約4秒ごとに切り替える
+        ========================= */
+        const charmPhotos = document.querySelectorAll(".charm-photo");
+
+        charmPhotos.forEach((photo) => {
+            const imageList = (photo.dataset.images || "")
+                .split("|")
+                .filter((url) => url.trim() !== "");
+
+            if (imageList.length < 2) {
+                return;
+            }
+
+            let currentIndex = 0;
+
+            // 最初の写真を表示
+            photo.src = imageList[0];
+
+            window.setInterval(() => {
+                const nextIndex = (currentIndex + 1) % imageList.length;
+                const nextImage = new Image();
+
+                // 次の写真が読み込めた場合だけ切り替える
+                nextImage.onload = () => {
+                    photo.classList.add("is-changing");
+
+                    window.setTimeout(() => {
+                        photo.src = imageList[nextIndex];
+                        currentIndex = nextIndex;
+
+                        photo.classList.remove("is-changing");
+                    }, 350);
+                };
+
+                // 読み込みに失敗した場合は現在の写真を維持
+                nextImage.onerror = () => {
+                    console.warn(
+                        "魅力紹介の写真を読み込めませんでした:",
+                        imageList[nextIndex]
+                    );
+                };
+
+                nextImage.src = imageList[nextIndex];
+            }, 4000);
+        });
 
         /* =========================
            お気に入りボタン
