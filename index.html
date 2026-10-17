@@ -1,10 +1,11 @@
 
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>アイドルの紹介ページ</title>
+    <title>守屋麗奈さん紹介ページ</title>
 
     <style>
         /* ページ全体 */
@@ -14,7 +15,7 @@
 
         body {
             margin: 0;
-            padding-bottom: 130px;
+            padding-bottom: 150px;
             font-family: Arial, sans-serif;
             line-height: 1.6;
             color: #5C4A42;
@@ -33,6 +34,22 @@
             margin: 0;
         }
 
+        /* ナビゲーション */
+        nav {
+            margin-top: 15px;
+        }
+
+        nav a {
+            color: #765565;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 14px;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
         /* メインコンテンツ */
         main {
             max-width: 800px;
@@ -47,12 +64,44 @@
             padding: 20px;
             border-radius: 8px;
             border: 1px solid #F1E6D5;
+            scroll-margin-top: 20px;
         }
 
         h2 {
             color: #B88796;
             border-bottom: 2px solid #F3DDE4;
             padding-bottom: 8px;
+        }
+
+        /* プロフィール画像 */
+        .profile-image {
+            display: block;
+            max-width: 100%;
+            width: 300px;
+            height: auto;
+            margin: 20px auto;
+            border-radius: 8px;
+        }
+
+        /* ニュース一覧 */
+        .news-list {
+            padding-left: 20px;
+        }
+
+        .news-list li {
+            margin-bottom: 10px;
+        }
+
+        /* SNSリンク */
+        .sns-links a {
+            display: inline-block;
+            margin: 5px 10px 5px 0;
+            color: #A8798A;
+            text-decoration: none;
+        }
+
+        .sns-links a:hover {
+            text-decoration: underline;
         }
 
         /* フッター */
@@ -89,55 +138,136 @@
                 padding: 0 12px;
             }
 
+            nav a {
+                display: inline-block;
+                margin: 5px;
+            }
+
             footer {
                 font-size: 12px;
                 padding: 8px;
             }
 
             body {
-                padding-bottom: 120px;
+                padding-bottom: 130px;
             }
         }
     </style>
 </head>
 
 <body>
-    <header>
-        <h1>アイドルの紹介ページ</h1>
+    <!-- TOP・ヘッダー -->
+    <header id="top">
+        <h1>守屋麗奈さん紹介ページ</h1>
+        <p>櫻坂46のメンバー・守屋麗奈さんの魅力を紹介します。</p>
+
+        <nav>
+            <a href="#profile">PROFILE</a>
+            <a href="#activity">ACTIVITY</a>
+            <a href="#charm">CHARM</a>
+            <a href="#news">NEWS</a>
+            <a href="#sns">OFFICIAL SNS</a>
+        </nav>
     </header>
 
     <main>
-        <section>
-            <h2>1. プロフィール</h2>
+        <!-- 1. プロフィール -->
+        <section id="profile">
+            <h2>1. PROFILE｜プロフィール</h2>
             <p>
-                櫻坂46 2期生<br>
-                守屋麗奈<br>
-                東京都出身
+                グループ：櫻坂46<br>
+                名前：守屋麗奈<br>
+                出身地：東京都
             </p>
-            <img src="https://github.com/nakamuraako/test/blob/main/cupcake.jpg?raw=true" alt="サンプル">
+
+            <img
+                class="profile-image"
+                src="https://github.com/nakamuraako/test/blob/main/cupcake.jpg?raw=true"
+                alt="プロフィール画像"
+            >
         </section>
 
-        <section>
-            <h2>2. 仕事紹介</h2>
+        <!-- 2. 仕事紹介・活動内容 -->
+        <section id="activity">
+            <h2>2. ACTIVITY｜仕事紹介</h2>
             <p>
-                アイドル<br>
-                モデル<br>
-                女優
+                ・アイドル<br>
+                ・モデル<br>
+                ・女優
+            </p>
+            <p>
+                アイドル活動を中心に、さまざまな分野での活躍を紹介します。
+            </p>
+        </section>
+
+        <!-- 3. 魅力・推しポイント -->
+        <section id="charm">
+            <h2>3. CHARM｜魅力・推しポイント</h2>
+            <h3>笑顔</h3>
+            <p>
+                明るい笑顔や親しみやすい雰囲気が魅力です。
+            </p>
+
+            <h3>ファッション</h3>
+            <p>
+                モデルとしての活動にも注目したいポイントです。
+            </p>
+
+            <h3>パフォーマンス</h3>
+            <p>
+                ステージでの表現やグループでの活動にも注目です。
+            </p>
+        </section>
+
+        <!-- 4. 最新ニュース -->
+        <section id="news">
+            <h2>4. NEWS｜最新情報</h2>
+            <ul class="news-list">
+                <li>最新の出演情報をここに掲載します。</li>
+                <li>新しい活動やイベント情報をここに掲載します。</li>
+                <li>雑誌やメディアへの掲載情報をここに掲載します。</li>
+            </ul>
+            <p>
+                ※掲載情報は公式サイトなどで確認して更新してください。
+            </p>
+        </section>
+
+        <!-- 5. 公式SNS -->
+        <section id="sns">
+            <h2>5. OFFICIAL SNS｜公式SNS</h2>
+            <p>
+                最新の活動情報は、公式SNSや公式サイトで確認できます。
+            </p>
+
+            <div class="sns-links">
+                <a href="https://sakurazaka46.com/"
+                   target="_blank" rel="noopener noreferrer">
+                    櫻坂46 公式サイト
+                </a>
+
+                <a href="https://www.instagram.com/"
+                   target="_blank" rel="noopener noreferrer">
+                    Instagram
+                </a>
+
+                <a href="https://x.com/"
+                   target="_blank" rel="noopener noreferrer">
+                    X
+                </a>
+            </div>
+            <p>
+                ※SNSのリンク先は、本人または所属グループの公式アカウントに変更してください。
             </p>
         </section>
     </main>
 
+    <!-- フッター -->
     <footer>
         <p>お問い合わせ：info@example.com</p>
         <p>
-            SNS：
-            <a href="https://www.instagram.com/" target="_blank"
-               rel="noopener noreferrer">Instagram</a>
-            |
-            <a href="https://x.com/" target="_blank"
-               rel="noopener noreferrer">X</a>
+            <a href="#top">ページのトップへ戻る</a>
         </p>
-        <p>&copy; 2026 My Web Site</p>
+        <p>&copy; 2026 守屋麗奈さん紹介ページ</p>
     </footer>
 </body>
 </html>
